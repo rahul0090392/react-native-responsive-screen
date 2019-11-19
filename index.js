@@ -1,11 +1,12 @@
 // packages
-import { Dimensions, PixelRatio } from 'react-native';
+import { Dimensions, PixelRatio, Platform, StatusBar } from 'react-native';
 
 // Retrieve initial screen's width
 let screenWidth = Dimensions.get('window').width;
 
 // Retrieve initial screen's height
-let screenHeight = Dimensions.get('window').height;
+let screenHeight = Platform.OS == "ios" ? Dimensions.get('window').height : Dimensions.get('window').height - StatusBar.currentHeight;
+
 
 /**
  * Converts provided width percentage to independent pixel (dp).
